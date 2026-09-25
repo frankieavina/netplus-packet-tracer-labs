@@ -234,5 +234,3 @@ f. Ensure that the configuration is correct.
 g. Save the configuration file to avoid loss if the switch is powered down.
 
 ---
-
-*End of Document*
