@@ -199,6 +199,11 @@ R1# show ip route
 R2# show ip route
 ```
 
+<img width="706" height="678" alt="lab8 1" src="https://github.com/user-attachments/assets/1c6b7aae-2f02-4224-9a2e-a35fd573ec60" />
+<img width="682" height="628" alt="lab8 2" src="https://github.com/user-attachments/assets/449c53b0-6f75-442a-a0ce-a1249da4551b" />
+
+
+
 > **Questions:**
 > 1. How many connected routes (`C` code) do you see on each router? → **3 each** (2 LAN interfaces + 1 WAN/serial interface, once fully configured)
 > 2. How many OSPF routes (`O` code) do you see on each router? → 2
@@ -218,3 +223,7 @@ PC1> ping 10.1.2.10
 R2# ping 192.168.11.10
 ```
 (R2 → PC2)
+
+## Part 4: Result of Assessment
+
+<img width="1377" height="504" alt="lab8 3" src="https://github.com/user-attachments/assets/51957dc1-2ea4-4a9b-8693-92e66a3eda78" />
