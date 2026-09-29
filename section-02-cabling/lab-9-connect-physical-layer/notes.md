@@ -174,6 +174,6 @@ c. Repeat the process of verifying web access.
 
 All of the PCs should have connectivity to the web site and each other. You will learn to use connectivity testing in many upcoming labs.
 
----
+<img width="979" height="605" alt="Screenshot 2026-09-28 at 10 01 13 PM" src="https://github.com/user-attachments/assets/4f5c40d5-6499-4026-89f4-80c42807af1e" />
+<img width="1408" height="445" alt="Screenshot 2026-09-28 at 10 01 53 PM" src="https://github.com/user-attachments/assets/7dd00220-9ea1-4564-994c-88fe8997875d" />
 
-*End of Document*
