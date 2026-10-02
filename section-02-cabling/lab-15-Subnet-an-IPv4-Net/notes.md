@@ -221,8 +221,5 @@ ping <LAN-B last host address>
 ```
 > Do you get a reply?
 
-If you answered "no" to any of the preceding questions, go back and check your IP address and subnet mask configurations, and ensure that the default gateways have been correctly configured on PC-A and PC-B.
-
----
-
-*End of Document*
+<img width="742" height="816" alt="Screenshot 2026-10-01 at 5 06 15 PM" src="https://github.com/user-attachments/assets/da0ef669-ae6d-47b2-b150-5d023e4df145" />
+<img width="1289" height="830" alt="Screenshot 2026-10-01 at 5 06 39 PM" src="https://github.com/user-attachments/assets/5a514a88-264b-4e46-9de4-9cea1ac17719" />
