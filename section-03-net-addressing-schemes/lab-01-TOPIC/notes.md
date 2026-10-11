@@ -103,4 +103,5 @@ C:\> ipconfig /all
 - [ ] When prompted, enter the **Pre-shared Key** (passphrase) you recorded from the router, then click **Connect**.
 - [ ] Open **Desktop → Web Browser** and browse to `www.cisco.pka`.
 
-> **Verification:** The page loads. Repeat for any other PC that failed in Part 1.
+<img width="1432" height="590" alt="lab20--pic1" src="https://github.com/user-attachments/assets/830a74b6-cf02-4eed-a6da-b06dacb79b1f" />
+
