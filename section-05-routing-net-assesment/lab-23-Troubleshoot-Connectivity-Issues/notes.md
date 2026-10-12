@@ -246,23 +246,7 @@ No. You can’t resolve everything on PC-B and still use DNS2, because DNS2 is i
 
 If it isn't 100%, re-check that each device's IP configuration exactly matches the Addressing Table, including **subnet mask**, **default gateway**, and **DNS server**.
 
----
+<img width="1049" height="335" alt="Screenshot 2026-10-12 at 4 24 29 PM" src="https://github.com/user-attachments/assets/a8033dbf-ee48-4ec6-a8bf-aff9d9c615af" />
 
-## Summary of Issues (fill in when done)
-
-| # | Device | Problem | Fix / Escalate |
-|---|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-
-## What I Learned
-
-- **Order I troubleshot in:**
-- **Hardest issue to find:**
-- **What I'd escalate and to whom:**
-
----
 
 *End of Document*
