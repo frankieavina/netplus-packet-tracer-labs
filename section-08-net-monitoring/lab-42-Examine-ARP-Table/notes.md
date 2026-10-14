@@ -38,8 +38,6 @@ Wired LAN: `172.16.31.0/24` (behind Router1). Wireless LAN: `10.10.10.0/24` (beh
 
 This activity is optimized for viewing PDUs. The devices are already configured. You will gather PDU information in **simulation mode** and answer a series of questions about the data you collect.
 
-> **How to read the answers below:** Answers marked **(expected)** follow from how ARP and switches work and should match what you see. Anything marked **(check your output)** comes from your own screen, and Packet Tracer can differ slightly. Confirm each one as you go.
-
 ---
 
 ## Key Concepts (read this first)
@@ -52,8 +50,6 @@ This activity is optimized for viewing PDUs. The devices are already configured.
 | **Switch flooding** | A switch sends a broadcast out **every port except the one it arrived on** |
 | **Switch learning** | A switch records each frame's **source MAC** against the **port** it came in on |
 | **Remote destinations** | A host never ARPs for a remote IP. It ARPs for its **default gateway** and sends the frame to the gateway's MAC |
-
-**Simulation-mode tip:** click **Simulation** (bottom right), then **Capture/Forward** to step one event at a time. Click a PDU envelope to open it, then check the **Inbound/Outbound PDU Details** tab and look at **Layer 2** for the MAC addresses.
 
 ---
 
@@ -76,40 +72,39 @@ This activity is optimized for viewing PDUs. The devices are already configured.
 - [ ] Open the ARP PDU and record the **destination MAC address**.
 
 > **Q: Is this address listed in the table above?**
-> **A (expected): No.** The destination is the broadcast address `FFFF.FFFF.FFFF`, which isn't any one device's MAC.
+> **A : No.** The destination is the broadcast address `FFFF.FFFF.FFFF`, which isn't any one device's MAC.
 
 > **Q: How many copies of the PDU did Switch1 make?**
-> **A (expected): 3.** The switch floods the broadcast out every port except the one it arrived on: F0/2 (172.16.31.3), F0/3 (172.16.31.4), and G0/1 (Router1).
+> **A : 3.** The switch floods the broadcast out every port except the one it arrived on: F0/2 (172.16.31.3), F0/3 (172.16.31.4), and G0/1 (Router1).
 
 > **Q: What is the IP address of the device that accepted the PDU?**
-> **A (expected): 172.16.31.3.** It's the ARP target. The other devices receive the broadcast but discard it because the target IP isn't theirs.
+> **A : 172.16.31.3.** It's the ARP target. The other devices receive the broadcast but discard it because the target IP isn't theirs.
 
 - [ ] Open the PDU and examine **Layer 2**.
 
 > **Q: What happened to the source and destination MAC addresses?**
-> **A (expected): They swapped roles.** In the ARP reply, the source is 172.16.31.3's MAC (`0060.7036.2849`) and the destination is 172.16.31.2's MAC (`000C.85CC.1DA7`). The broadcast destination from the request is replaced by a specific unicast address.
+> **A : They swapped roles.** In the ARP reply, the source is 172.16.31.3's MAC (`0060.7036.2849`) and the destination is 172.16.31.2's MAC (`000C.85CC.1DA7`). The broadcast destination from the request is replaced by a specific unicast address.
 
 - [ ] Keep clicking **Capture/Forward** until the PDU returns to 172.16.31.2.
 
 > **Q: How many copies of the PDU did the switch make during the ARP reply?**
-> **A (expected): 1.** The reply is a unicast, and the switch already learned 172.16.31.2's MAC from the request, so it forwards out only F0/1.
+> **A : 1.** The reply is a unicast, and the switch already learned 172.16.31.2's MAC from the request, so it forwards out only F0/1.
 
 ### Step 2: Examine the ARP table
 
 - [ ] The ICMP packet reappears. Open it and examine the MAC addresses.
 
 > **Q: Do the MAC addresses of the source and destination align with their IP addresses?**
-> **A (expected): Yes.** Source MAC `000C.85CC.1DA7` belongs to 172.16.31.2, and destination MAC `0060.7036.2849` belongs to 172.16.31.3.
+> **A: Yes.** Source MAC `000C.85CC.1DA7` belongs to 172.16.31.2, and destination MAC `0060.7036.2849` belongs to 172.16.31.3.
 
 - [ ] Switch back to **Realtime** and let the ping complete.
 - [ ] On 172.16.31.2, run:
   ```
   C:\> arp -a
   ```
-  *(Type a plain hyphen, `-a`. The lab text shows an en dash, which won't work.)*
 
 > **Q: To what IP address does the MAC address entry correspond?**
-> **A (expected): 172.16.31.3** (MAC `0060.7036.2849`).
+> **A : 172.16.31.3** (MAC `0060.7036.2849`).
 
 > **Q: In general, when does an end device issue an ARP request?**
 > **A:** When it needs to send a frame to a destination IP address on its **own network** and doesn't have that destination's MAC address in its ARP table.
@@ -130,7 +125,7 @@ This activity is optimized for viewing PDUs. The devices are already configured.
   ```
 
 > **Q: How many replies were sent and received?**
-> **A (check your output):** Packet Tracer sends **4** echo requests per ping, so expect up to **4 replies** from each. The first ping can occasionally time out while ARP completes, giving 3 replies.
+> **A:** Packet Tracer sends **4** echo requests per ping, so expect up to **4 replies** from each. The first ping can occasionally time out while ARP completes, giving 3 replies.
 
 ### Step 2: Examine the MAC address table on the switches
 
@@ -141,7 +136,7 @@ This activity is optimized for viewing PDUs. The devices are already configured.
   ```
 
 > **Q: Do the entries correspond to those in the table above?**
-> **A (expected): Yes.** You should see `000C.85CC.1DA7` on F0/1, `0060.7036.2849` on F0/2, and `0002.1640.8D75` on F0/3. A switch only lists devices it has seen send a frame, so Router1's MAC (`00E0.F7B1.8901` on G0/1) appears once it has sent traffic.
+> **A: Yes.** I see `000C.85CC.1DA7` on F0/1, `0060.7036.2849` on F0/2, and `0002.1640.8D75` on F0/3. A switch only lists devices it has seen send a frame, so Router1's MAC (`00E0.F7B1.8901` on G0/1) appears once it has sent traffic.
 
 - [ ] Click **Switch0 → CLI** tab:
   ```
@@ -150,7 +145,7 @@ This activity is optimized for viewing PDUs. The devices are already configured.
   ```
 
 > **Q: Do the entries correspond to those in the table above?**
-> **A (expected): Yes.** Both wireless MACs (`0060.2F84.4AB6` and `0060.4706.572B`) are listed against **F0/2**.
+> **A: Yes.** Both wireless MACs (`0060.2F84.4AB6` and `0060.4706.572B`) are listed against **F0/2**.
 
 > **Q: Why are two MAC addresses associated with one port?**
 > **A:** Both wireless laptops connect through the **same access point**, which is plugged into Switch0's F0/2. The AP forwards both laptops' frames out that single port, so the switch learns two source MACs on it.
@@ -168,7 +163,7 @@ This activity is optimized for viewing PDUs. The devices are already configured.
   ```
 
 > **Q: What is the IP address of the new ARP table entry?**
-> **A (expected): 172.16.31.1**, the **default gateway** (Router1's G0/0, MAC `00E0.F7B1.8901`). The PC never learns the MAC of the remote address `10.10.10.1`. It learns its gateway's MAC instead.
+> **A: 172.16.31.1**, the **default gateway** (Router1's G0/0, MAC `00E0.F7B1.8901`). The PC never learns the MAC of the remote address `10.10.10.1`. It learns its gateway's MAC instead.
 
 - [ ] Clear the ARP table and switch to **Simulation mode**:
   ```
@@ -180,7 +175,7 @@ This activity is optimized for viewing PDUs. The devices are already configured.
   ```
 
 > **Q: How many PDUs appear?**
-> **A (expected): 2**, an ICMP echo and an ARP request (same as Part 1).
+> **A: 2**, an ICMP echo and an ARP request (same as Part 1).
 
 - [ ] Click **Capture/Forward**, then click the PDU now at Switch1.
 
@@ -199,7 +194,7 @@ This activity is optimized for viewing PDUs. The devices are already configured.
   ```
 
 > **Q: How many MAC addresses are in the table? Why?**
-> **A (expected): None** (the command may be rejected or return an empty table). Routers don't keep MAC address tables; that's a **switch** function. Routers forward based on IP routes and use an **ARP table** to find MACs.
+> **A: None** (the command may be rejected or return an empty table). Routers don't keep MAC address tables; that's a **switch** function. Routers forward based on IP routes and use an **ARP table** to find MACs.
 
 - [ ] Now check the ARP table:
   ```
@@ -207,22 +202,12 @@ This activity is optimized for viewing PDUs. The devices are already configured.
   ```
 
 > **Q: Is there an entry for 172.16.31.2?**
-> **A (expected): Yes.** Router1 learned it from the ARP request 172.16.31.2 sent for its gateway address.
+> **A: Yes.** Router1 learned it from the ARP request 172.16.31.2 sent for its gateway address.
 
 > **Q: What happens to the first ping in a situation where the router responds to the ARP request?**
-> **A (expected):** The **first ping typically times out**. Time is spent on the ARP exchange before the packet can be forwarded. Subsequent pings succeed because the ARP entries are now cached.
+> **A:** The **first ping typically times out**. Time is spent on the ARP exchange before the packet can be forwarded. Subsequent pings succeed because the ARP entries are now cached.
 
 ---
-
-## Commands Used
-
-| Command | Where | Purpose |
-|---|---|---|
-| `arp -d` | PC command prompt | Clear the PC's ARP table |
-| `arp -a` | PC command prompt | Display the PC's ARP table |
-| `ping <ip>` | PC command prompt | Generate ARP and ICMP traffic |
-| `show mac-address-table` | Switch (privileged EXEC) | Display learned MAC address to port mappings |
-| `show arp` | Router (privileged EXEC) | Display IP to MAC mappings the router has learned |
 
 ## Summary: What Makes ARP Different Locally vs. Remotely
 
