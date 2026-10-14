@@ -216,4 +216,7 @@ SW1# show ip interface brief
 SW1# show running-config | include username|domain|transport
 ```
 
+
+<img width="1314" height="393" alt="Screenshot 2026-10-13 at 5 44 28 PM" src="https://github.com/user-attachments/assets/032f81c8-703d-48c5-b019-98ce8927a0c1" />
+
 ---
