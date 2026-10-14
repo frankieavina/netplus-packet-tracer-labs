@@ -1,3 +1,4 @@
+
 # Packet Tracer - Examine the ARP Table
 
 ## Addressing Table
@@ -27,6 +28,8 @@ Access Point       172.16.31.2 .3  .4
 ```
 
 Wired LAN: `172.16.31.0/24` (behind Router1). Wireless LAN: `10.10.10.0/24` (behind Router0).
+
+<img width="472" height="358" alt="Screenshot 2026-10-14 at 2 55 01 PM" src="https://github.com/user-attachments/assets/20baae81-15b4-46b0-a408-7f1772e18dcb" />
 
 ## Objectives
 
