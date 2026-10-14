@@ -1,4 +1,3 @@
-
 # Packet Tracer - Configure Secure Passwords and SSH
 
 ## Addressing Table
@@ -215,5 +214,5 @@ RTA# show running-config | section line vty
 SW1# show ip interface brief
 SW1# show running-config | include username|domain|transport
 ```
+<img width="1314" height="393" alt="Screenshot 2026-10-13 at 5 44 28 PM" src="https://github.com/user-attachments/assets/1f76945a-4760-47cc-bad6-f385bcf29b2c" />
 
----
